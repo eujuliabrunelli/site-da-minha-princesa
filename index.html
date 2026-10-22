@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para minha gatinha 💗</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #ffe4ec, #fff0f5, #f6e3ff);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px 25px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(180, 100, 140, 0.2);
+            width: 85%;
+            max-width: 450px;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 32px;
+        }
+
+        p {
+            color: #804060;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            background: #ff85ad;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e75480;
+            transform: scale(1.05);
+        }
+
+        #surpresa {
+            display: none;
+            margin-top: 25px;
+            color: #c2185b;
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        .flor {
+            position: absolute;
+            bottom: -50px;
+            font-size: 25px;
+            animation: subir 10s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes subir {
+            from {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>OI, PRINCESA! 💗</h1>
+
+        <p>Quer saber o quanto eu te amo? 🌷</p>
+
+        <button onclick="mostrarSurpresa()">
+            Descobrir o tamanho do meu amor 💖
+        </button>
+
+        <div id="surpresa">
+            Multiplique as estrelas do céu pelas gotas dos oceanos! ✨🌊
+            <br><br>
+    </div>
+
+    <script>
+        function mostrarSurpresa() {
+            document.getElementById("surpresa").style.display = "block";
+        }
+
+        const flores = ["🌸", "🌷", "🌺", "💗", "🌼"];
+
+        function criarFlor() {
+            const flor = document.createElement("div");
+            flor.classList.add("flor");
+            flor.innerHTML = flores[
+                Math.floor(Math.random() * flores.length)
+            ];
+
+            flor.style.left = Math.random() * 100 + "vw";
+            flor.style.animationDuration = (6 + Math.random() * 6) + "s";
+            flor.style.fontSize = (20 + Math.random() * 20) + "px";
+
+            document.body.appendChild(flor);
+
+            setTimeout(() => {
+                flor.remove();
+            }, 12000);
+        }
+
+        setInterval(criarFlor, 700);
+    </script>
+
+</body>
+</html>
